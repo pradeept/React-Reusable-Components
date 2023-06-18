@@ -1,48 +1,29 @@
-import './index.css';
 import React from "react";
-// import Button from "./components/Button";
-// import {FaApple} from 'react-icons/fa';     //for icons
-import Accordion from './components/Accordion';
-
+import './index.css'
+import Route from "./components/Route";
+import SideBar from "./components/SideBar";
+import AccordionPage from './pages/AccordionPage';
+import DropdownPage from './pages/DropdownPage';
+import ButtonPage from './pages/ButtonPage';
 
 function App(){ 
-    // function handleClick(){
-    //     console.log('Clicked!');
-    // }
 
-    const sample = [
-        {
-            id:"sasdfha",
-            title:"Title 1",
-            content:"This is a long content."
-        },
-        {
-            id:"sasdfhd",
-            title:"Title 2",
-            content:"This is another long content"
-        },
-        {
-            id:"sasdfhc",
-            title:"Title 3 ",
-            content:"This is yet another long content"
-        },
-        {
-            id:"sasdfhe",
-            title:"Title 4",
-            content:"Uggh.. this should be the last one.."
-        },
-    ]
-
-    return <>
-        <div className='m-4'>
-            {/* <Button primary rounded outline onClick={handleClick} > <FaApple/> Primary</Button>
-            <Button secondary rounded outline onClick={handleClick} > <FaApple/> Secondary</Button>
-            <Button success outline > success</Button>
-            <Button warning rounded >  Warning</Button>
-            <Button danger   > danger</Button> */}
-            <Accordion items={sample} key={sample.id}/>
+    return <div className="container mx-auto grid grid-cols-6 gap-4 mt-4">
+        
+        <SideBar />
+        <div className="col-span-5">
+            <Route path='/'>
+                <DropdownPage />
+            </Route>
+            <Route path='/accordion'>
+                <AccordionPage />
+            </Route>
+            <Route path='/buttons'>
+                <ButtonPage />
+            </Route>
         </div>
-    </>
+    </div>
+
 }
 
 export default App;
