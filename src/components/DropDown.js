@@ -34,18 +34,15 @@ function DropDown({options,value,onChange}){
     },[])
 
 
-
     const handleClick = ()=>{
         setIsOpen((prevState => !prevState));
     }
-
 
 
     const handleOptionClick = (option)=>{
         setIsOpen(false);
         onChange(option);
     }
-
 
 
     const renderedOptions = options.map((option)=>{
